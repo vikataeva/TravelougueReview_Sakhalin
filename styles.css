@@ -122,54 +122,74 @@ body {
 
 /* Overview Section with Places List */
 .overview {
-    padding: 56px 0;
-    margin: var(--margin) 0;
+    padding: 56px 0; /* Vertical padding */
 }
 
-.overview h2 {
-    text-align: center;
-    margin-bottom: 20px;
+.overview-header {
+    text-align: center; /* Centered text */
+    margin: 0 auto 40px; /* Spacing below the header */
+    max-width: 1100px; /* Limit width for better readability */
+    padding: 0 20px; /* Inner spacing */
 }
 
 /* Places List Grid */
 .places-list {
     display: grid;
     grid-template-columns: repeat(3, 1fr); /* Three equal columns */
-    gap: 52px;
+    gap: 30px;
     list-style: none; /* Remove default list styling */
     padding: 0; /* Remove default padding */
     margin:0 auto; /* Center the grid */
-    margin-top: 40px; /* Spacing above the grid */
-    max-width: 1000px; /* Limit width for better layout */
+    max-width: 900px; /* Limit width for better layout */
+    height: 750px;
 }
 
 /* Individual Place Card */
 .place-card {
-    display: block;
+    display: grid;
     grid-template-rows: auto 1fr auto; /* defines how tall each row */
     background-color: var(--white);
-    border-radius: var(--border-radius);
+    border: 1px solid #ddd; /* Light border */
+    border-radius: 0px; /* Rounded corners */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     overflow: hidden; /* Ensure rounded corners */
     max-width: 560px; /* Limit card width */
+    height: 750px; /* Full height of the grid cell */
     margin: 0 auto; /* Center the card */
     transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effects */
 }
 
 .place-card-image {
-    position: relative;
+    width: 100%; /* Full width of the card */
+    height: 500px; /* Fixed height for uniformity */
+    margin:0; /* No margin for image container */
     overflow: hidden; /* Ensure image fits within rounded corners */
 }
 
 .place-card-image img {
-    width: 100%; /* Full width */
-    aspect-ratio: 16/10;
+    width: 100%; /* Full width of the card */
+    height: 100%;
+    aspect-ratio: 2/3;
     object-fit: cover; /* Cover the area without distortion */
-    transition: transform 0.3s ease; /* Smooth zoom effect */
+    display: block; /* Remove bottom space */
 }
 
 .place-card-content {
-    padding: 16px; /* Inner spacing */
+    padding: 14px 12px 10px; /* Inner spacing */
+}
+
+.place-card-title {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0 0 6px; /* Spacing below the title */
+    font-weight: 400;
+    letter-spacing: .06em;
+    color: var(--ocean); /* Title color */
+}
+.place-card-info {
+    line-height: 1.5;
+    color: var(--text-color);
+    margin: 0; /* No margin for description */
+    font-weight: 300;
 }
 
 .button-container {
