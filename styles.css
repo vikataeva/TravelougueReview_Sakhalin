@@ -54,7 +54,7 @@ p {
 /* Hero Section */
 .hero {
     position: relative; /* Ensure overlay and content are positioned correctly */
-    min-height: 70vh; /* Full viewport height, at least 70 percent */
+    min-height: 60vh; /* Full viewport height, at least 70 percent */
     background: var(--overlay), url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80') no-repeat center/cover fixed; /* Background hero image with overlay */
     color: var(--white); /* White text over the image */
     text-align: center; /* Centered text and elements */
@@ -65,54 +65,50 @@ p {
 }
 /* Wrap hero content in a grid for centering */
 .hero_content {
-    display:grid; /* Grid contayner for layout */
-    place-items: center; /* Center items both vertically and horizontally */
-    text-align: center; /* Center text */
+    display:block; /* Grid contayner for layout */
     max-width: 800px; /* Limit width for better readability */
     margin: 0 auto; /* Center the grid container */
     padding: 0px 0 80px;  /* Brings down the content of the page*/
-    gap: 22px; /* Spacing between elements */
+    text-align: center; /* Centered text */
 }
 
-.intro {
-    display:grid; /* two column grid layout for image and text */
-    grid-template-columns: 1fr 1fr; /* Two equal columns */
-    gap: 20px; /* Spacing between columns */
-    align-items: center; /* Vertically center items */
-    justify-items: center; /* Horizontally center items */
-    background-color: rgba(255, 255, 255, 0.15); /* Semi-transparent background */
-    backdrop-filter: blur(10px); /* Blur effect for background */
-    border: 2px solid; /* White border */
-    border-color: #FFFFFF; /* White border color */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-    padding: 20px; /* Inner spacing */
-    margin-top: 40px; /* Spacing above the intro section */
-    max-width: auto; /* Default Full width */
-}
-/*Left column - text*/
 .intro-text {
-    padding: 20px; /* Inner spacing */
-    text-align: left; /* Left-aligned text */
-    color:var(--white); /* White text color */
-    font-weight: 700;
-    font-size: 1.1em;
-    line-height: 1.4;
-    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
-/*Right column - image*/
-.sakhalin-image{
-    width: 100%; /* Full width of the column */
-    object-fit: cover; /* Fills the container without distortion */
-}
-.sakhalin-image img {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    font-size: 1.4em;
+    margin: 0 auto; /* Center paragraph */
+    max-width: 600px; /* Limit width for better readability */
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); /* Text shadow for better readability */
+    line-height: 1.7;
+    font-weight: 300;
+    text-align: center; /* Centered text */
+    padding-top: 20px; /* Spacing above the paragraph */
 }
 
-.content {
-    max-width: 800px; /* Limit content width for readability */
-    margin: 40px auto; /* Center content with margin */
-    padding: 0 20px; /* Inner spacing */
+.hero-button {
+    margin-top: 40px; /* Spacing above the button */
+    text-align: center; /* Center the button */
 }
+
+.hero-btn {
+    background-color: transparent; /* Button background color */
+    backdrop-filter: blur(10px); /* Blurred background effect */
+    color: var(--white); /* Button text color */
+    border: 2px solid; /* Button border */
+    border-color: var(--white); /* Button border color */
+    border-radius: 8px; /* Rounded button corners */
+    padding: 14px 28px; /* Button padding */
+    font-size: 1.1em; /* Slightly larger text */
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-decoration: none; /* Remove underline */
+    font-weight: 500; /* Semi-bold text */
+    display: inline-block; /* Inline-block for proper padding */
+    transition: background-color 0.3s ease, color 0.3s ease
+}
+.hero-btn:hover {
+    background-color: var(--white); /* Change background on hover */
+    color: var(--ocean); /* Change text color on hover */
+    text-decoration: none; /* Remove underline on hover */
+}
+
 
 /* General Body Styles */
 body {
