@@ -54,59 +54,138 @@ p {
 /* Hero Section */
 .hero {
     position: relative; /* Ensure overlay and content are positioned correctly */
-    min-height: 60vh; /* Full viewport height, at least 70 percent */
+    min-height: 78vh; /* Full viewport height, at least 78 percent */
+    color:#FFFFFF;
+
     background: var(--overlay), url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80') no-repeat center/cover fixed; /* Background hero image with overlay */
     color: var(--white); /* White text over the image */
-    text-align: center; /* Centered text and elements */
-    padding: 50px 20px; /* Inner spacing (top and bottom)*/
-    border-bottom-left-radius: var(--border-radius); /* Rounded bottom corners */
-    border-bottom-right-radius: var(--border-radius); /* Rounded bottom corners */
-    box-shadow: rgba(26, 124, 132, 0.5) 0px 8px 24px 12px; /* Shadow for depth */
+
+    padding: 4px 94px 6px; /* Inner spacing (top and bottom)*/
 }
 /* Wrap hero content in a grid for centering */
 .hero_content {
-    display:block; /* Grid contayner for layout */
-    max-width: 800px; /* Limit width for better readability */
-    margin: 0 auto; /* Center the grid container */
-    padding: 0px 0 80px;  /* Brings down the content of the page*/
-    text-align: center; /* Centered text */
+    display:grid; /* Grid contayner for layout */
+    max-width: 46rem; /* Limit width for better readability */
+    padding-left: 96px;  /* Brings left the content of the page*/
+    padding-top: 177px; /* Spacing from the top */
+    text-align: left; /* Centered text */
+    gap: 16px; /* Spacing between elements */
 }
 
-.intro-text {
-    font-size: 1.4em;
-    margin: 0 auto; /* Center paragraph */
-    max-width: 600px; /* Limit width for better readability */
+.hero_eyebrow {
+    margin: 0;
+    font-size: 1.2em;
+    text-transform: uppercase; /* Uppercase letters */
+    font-weight: 500; /* Semi-bold font weight */
+    letter-spacing: .22em; /* Spacing between letters */
+    color: var(--white); /* Eyebrow color */
+}
+
+.hero_title {
+    font-size: 5em;
+    margin: 0; /* No margin for title */
+    font-weight: 400; /* Light font weight */
+    letter-spacing: .14em;;
+}
+
+.hero_subtitle {
+    font-size: 1.8em;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin: .9rem 0 0; /* Spacing above the subtitle */
+    font-weight: 300; /* Light font weight */
+    letter-spacing: .16em;
+    text-transform: uppercase;
+}
+.hero_text {
+    font-size: 1.5em;
+    margin: .9rem 0 0; /* Spacing above */
+    max-width: 65ch; 
     text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); /* Text shadow for better readability */
     line-height: 1.7;
     font-weight: 300;
-    text-align: center; /* Centered text */
-    padding-top: 20px; /* Spacing above the paragraph */
+    text-wrap: balance;
 }
 
-.hero-button {
-    margin-top: 40px; /* Spacing above the button */
-    text-align: center; /* Center the button */
+.hero_panel_header {
+    position:absolute; /* Position the header */
+    right: 10px; /* Distance from the right edge */
+    bottom: 210px; /* Distance from the bottom edge */
+    max-width: 640px; /* Limit width for better readability */
+    padding-right: 4px; 
+    text-align: right; /* Right-aligned text */
+    color: var(--white);    
+    text-transform: uppercase;
+    font-size: 1.4em;
+    margin: 0;
+    font-weight: 500; /* Semi-bold font weight */
+    letter-spacing: .08em;
+    text-transform: uppercase; /* Uppercase letters */
+    font-family: 'monserrat', sans-serif;
 }
 
-.hero-btn {
-    background-color: transparent; /* Button background color */
+.hero_panel {
+    position: absolute; /* Position the panel */
+    right: 0px; /* Distance from the right edge */
+    bottom : 48px; /* Distance from the bottom edge */
+    background: rgba(255, 255, 255, 0.1); 
     backdrop-filter: blur(10px); /* Blurred background effect */
-    color: var(--white); /* Button text color */
-    border: 2px solid; /* Button border */
-    border-color: var(--white); /* Button border color */
-    border-radius: 8px; /* Rounded button corners */
-    padding: 14px 28px; /* Button padding */
-    font-size: 1.1em; /* Slightly larger text */
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    text-decoration: none; /* Remove underline */
-    font-weight: 500; /* Semi-bold text */
-    display: inline-block; /* Inline-block for proper padding */
-    transition: background-color 0.3s ease, color 0.3s ease
+    padding: 20px 16px; /* Inner spacing */
+    max-width: 640px; /* Limit width for better readability */
+    color: var(--white);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25); /* Shadow for depth */
+    border-radius: 8px; /* Rounded corners */
 }
-.hero-btn:hover {
-    background-color: var(--white); /* Change background on hover */
-    color: var(--ocean); /* Change text color on hover */
-    text-decoration: none; /* Remove underline on hover */
+
+.hero_panel_list {
+    list-style: none; /* Remove default list styling */
+    padding: 0; /* Remove default padding */
+    margin: 0; /* Remove default margin */
+    display: flex; /* Flexbox for horizontal layout */
+    gap: 0; /* Spacing between items */
+    align-items: stretch; /* Stretch items to the same height */
+}
+
+.hero_panel_list li {
+    flex: 1 1 0; /* Equal width for each item */
+    display:flex; /* Flexbox for link alignment */
+}
+
+.hero_panel_item {
+    display: flex; /* Flexbox for link alignment */
+    flex-direction: column; /* Stack items vertically */
+    justify-content: center; /* Center items vertically */
+    gap: 6px; /* Spacing between items */
+    padding: 12px 16px; /* Inner spacing */
+    width: 100%; /* Full width of the list item */
+    text-decoration: none; /* Remove underline */
+    color: var(--white); /* Link color */
+    min-width: 140px; /* Minimum width for better readability */
+    transition: color 0.3s ease, border-bottom 0.3s ease; /* Smooth hover effects */
+}
+.hero_panel_list li:not(:last-child) .hero_panel_item {
+    border-right: 1px solid var(--white); /* Divider between items */
+}
+
+.hero_panel_list a:hover {  
+    color: var(--ocean); /* Change color on hover */
+    border-bottom: 1px solid var(--waves); /* Change underline color on hover */
+}
+
+.spot_title {
+    font-size: 1.2em;
+    margin: 0; /* No margin for spot title */
+    font-weight: 500; /* Semi-bold font weight */
+    letter-spacing: .08em;
+    text-transform: uppercase; /* Uppercase letters */
+    font-family: 'monserrat', sans-serif;
+}
+
+.spot_info {
+    font-size: 0.9em;
+    margin: 0; /* No margin for spot info */
+    font-weight: 300; /* Light font weight */
+    letter-spacing: .04em;
+    font-family: 'monserrat', sans-serif;
 }
 
 
@@ -120,28 +199,53 @@ body {
     padding: 0;
 }
 
-/* Overview Section with Places List */
 .overview {
+    display: grid; /* Grid layout for overview */
+    grid-template-columns: 1.1fr 1.4fr; /* two column layout */
+    gap: 30px; /* Spacing between elements */
+    align-items: start; /* Vertically center items */
+    max-width: 1700px; /* Limit width for better readability */
+    margin: 56px auto; /* Center the grid */
+    padding: 0px 20px; /* Vertical padding */
+}
+
+.about h2{
+    margin: 0 0 10px; /* Spacing below the title */
+    font-size: 2em;
+    font-weight: 400;
+    letter-spacing: .06em;
+    color: var(--ocean); /* Title color */
+}
+
+.about p {
+    font-size: 1.4em;
+    line-height: 1.6; /* Line spacing */
+    margin: 0 0 14px; /* Spacing below paragraphs */
+    font-weight: 300;
+}
+/* Overview Section with Places List */
+.overview-top3 {
     padding: 56px 0; /* Vertical padding */
 }
 
-.overview-header {
+.overviewtop3-header {
     text-align: center; /* Centered text */
-    margin: 0 auto 40px; /* Spacing below the header */
+    margin: 0 0 14px; /* Spacing below the header */
     max-width: 1100px; /* Limit width for better readability */
     padding: 0 20px; /* Inner spacing */
+    font-size: 2em;
+    font-weight: 400;
+    color: var(--ocean); /* Title color */
 }
 
 /* Places List Grid */
 .places-list {
     display: grid;
     grid-template-columns: repeat(3, 1fr); /* Three equal columns */
-    gap: 30px;
+    gap: 18px;
     list-style: none; /* Remove default list styling */
     padding: 0; /* Remove default padding */
-    margin:0 auto; /* Center the grid */
-    max-width: 900px; /* Limit width for better layout */
-    height: 750px;
+    margin:0; /* Center the grid */
 }
 
 /* Individual Place Card */
@@ -154,28 +258,22 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     overflow: hidden; /* Ensure rounded corners */
     max-width: 560px; /* Limit card width */
-    height: 750px; /* Full height of the grid cell */
-    margin: 0 auto; /* Center the card */
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effects */
 }
 
 .place-card-image {
-    width: 100%; /* Full width of the card */
-    height: 500px; /* Fixed height for uniformity */
     margin:0; /* No margin for image container */
     overflow: hidden; /* Ensure image fits within rounded corners */
 }
 
 .place-card-image img {
     width: 100%; /* Full width of the card */
-    height: 100%;
     aspect-ratio: 2/3;
     object-fit: cover; /* Cover the area without distortion */
     display: block; /* Remove bottom space */
 }
 
 .place-card-content {
-    padding: 14px 12px 10px; /* Inner spacing */
+    padding: 12px 12px 8px; /* Inner spacing */
 }
 
 .place-card-title {
@@ -186,16 +284,16 @@ body {
     color: var(--ocean); /* Title color */
 }
 .place-card-info {
-    line-height: 1.5;
-    color: var(--text-color);
+    color: var(--white); /* Description text color */
+    font-size: .7em;
     margin: 0; /* No margin for description */
     font-weight: 300;
+    text-transform: lowercase;
 }
 
 .button-container {
     text-align: center; /* Center the button */
-    margin-top: 16px; /* Spacing above the button */
-    margin-bottom: 16px; /* Spacing below the button */
+    margin-bottom: 20px; /* Spacing below the button */
 }
 .learn-more-button {
     background-color: var(--white); /* Button background color */
