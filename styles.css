@@ -1,20 +1,119 @@
 :root{
+/* Color Palette */ 
     --ocean: #1A7C84;
     --waves: #4EC6D1;
     --white: #FFFFFF;
     --sand: #FDE9CF;
     --sunset: #FF6F61;
 
+/* Hero Background Image and Overlay tint*/
     --hero-image: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
     --overlay: linear-gradient(rgba(26, 124, 132, 0.7), rgba(78, 198, 209, 0.7));
 
-    --font-family: 'Montserrat', sans-serif;
-    --font-size: 16px;
-    --background-color: #f4f4f4;
-    --text-color: #333;
-    --border-radius: 16px;
-    --padding: 10px;
-    --margin: 10px;
+/* Typography and Spacing */
+    --font-family: 'Montserrat', sans-serif; /* Primary font*/
+    --font-size: 16px; /* Base font size */
+    --background-color: #f4f4f4; /*Page background color*/
+    --text-color: #333; /*Primary body text color*/
+    --border-radius: 16px; /* Rounded elements */
+    --padding: 10px; /* Spacing inside the box */
+    --margin: 10px; /* Spacing outside the box */
+}
+
+/* Headings and Paragraphs Styles */
+h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 5em;
+    letter-spacing: .1em; /*Adds luxury spacing between letters */
+    text-transform: uppercase; /* Uppercase letters */
+    font-weight: 300; /* Light font weight */
+    margin: 0.2em 0; /* Spacing above and below */
+}
+
+h2 {
+    font-size: 1.8em;
+    font-weight: 300;
+    margin: 0.2em 0 0.5em; /* Spacing above and below */
+    text-transform: uppercase;
+}
+
+h3 {
+    font-size: 1.4em;
+    font-weight: 500;
+    margin: 0.2em 0 0.5em;
+    text-transform: uppercase;
+}
+
+p {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; /* Secondary font for body text */
+    font-size: 1.3em;
+    line-height: 1.6; /* Line spacing */
+    margin: 0; /* No margin for paragraphs */
+    font-weight: 300;
+}
+
+/* Hero Section */
+.hero {
+    position: relative; /* Ensure overlay and content are positioned correctly */
+    min-height: 70vh; /* Full viewport height, at least 70 percent */
+    background: var(--overlay), url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80') no-repeat center/cover fixed; /* Background hero image with overlay */
+    color: var(--white); /* White text over the image */
+    text-align: center; /* Centered text and elements */
+    padding: 50px 20px; /* Inner spacing (top and bottom)*/
+    border-bottom-left-radius: var(--border-radius); /* Rounded bottom corners */
+    border-bottom-right-radius: var(--border-radius); /* Rounded bottom corners */
+}
+/* Wrap hero content in a grid for centering */
+.hero_content {
+    display:grid; /* Grid contayner for layout */
+    place-items: center; /* Center items both vertically and horizontally */
+    text-align: center; /* Center text */
+    max-width: 800px; /* Limit width for better readability */
+    margin: 0 auto; /* Center the grid container */
+    padding: 0px 0 80px;  /* Brings down the content of the page*/
+    gap: 22px; /* Spacing between elements */
+}
+
+.intro {
+    display:grid; /* two column grid layout for image and text */
+    grid-template-columns: 1fr 1fr; /* Two equal columns */
+    gap: 20px; /* Spacing between columns */
+    align-items: center; /* Vertically center items */
+    justify-items: center; /* Horizontally center items */
+    background-color: rgba(255, 255, 255, 0.15); /* Semi-transparent background */
+    backdrop-filter: blur(10px); /* Blur effect for background */
+    border-radius: 12px; /* Rounded corners */
+    border: 2px solid; /* White border */
+    border-color: #FFFFFF; /* White border color */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    padding: 20px; /* Inner spacing */
+    margin-top: 40px; /* Spacing above the intro section */
+    max-width: auto; /* Default Full width */
+}
+/*Left column - text*/
+.intro-text {
+    padding: 20px; /* Inner spacing */
+    text-align: left; /* Left-aligned text */
+    color:var(--white); /* White text color */
+    font-weight: 700;
+    font-size: 1.1em;
+    line-height: 1.4;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+/*Right column - image*/
+.sakhalin-image{
+    width: 100%; /* Full width of the column */
+    object-fit: cover; /* Fills the container without distortion */
+}
+.sakhalin-image img {
+    border-radius: 20px; /* Rounded corners for the image */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.content {
+    max-width: 800px; /* Limit content width for readability */
+    margin: 40px auto; /* Center content with margin */
+    padding: 0 20px; /* Inner spacing */
 }
 
 body {
@@ -24,90 +123,4 @@ body {
     color: var(--text-color);
     margin: 0;
     padding: 0;
-}
-
-.hero {
-    position: relative;
-    min-height: 70vh;
-    background: var(--overlay), url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80') no-repeat center/cover fixed;
-    color: var(--white);
-    text-align: center;
-    padding: 50px 20px;
-    border-bottom-left-radius: var(--border-radius);
-    border-bottom-right-radius: var(--border-radius);
-}
-
-.hero_content {
-    display:grid;
-    place-items: center;
-    text-align: center;
-    padding: 0px 0 80px; 
-    gap: 22px;
-}
-
-h1 {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 4em;
-    font-size: 5em;
-    letter-spacing: .1em;
-    font-weight: 300;
-    margin: 0.2em 0;
-}
-
-h2 {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 1.8em;
-    font-weight: 300;
-    margin: 0.2em 0 0.5em;
-    text-transform: uppercase;
-}
-
-h3 {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 1.4em;
-    font-weight: 500;
-    margin: 0.2em 0 0.5em;
-    text-transform: uppercase;
-}
-
-p {
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-size: 1.3em;
-    line-height: 1.6;
-    margin: 0;
-    font-weight: 300;
-}
-
-.intro {
-    display:grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-    align-items: center;
-    background-color: rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(10px);
-    border-radius: 12px;
-    border: 2px solid;
-    border-color: #FFFFFF;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    margin-top: 40px;
-    max-width: auto;
-}
-
-.intro-text {
-    padding: 20px;
-    color:var(--white);
-    font-weight: 700;
-    font-size: 1.1em;
-    line-height: 1.4;
-    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
-
-.sakhalin-image{
-    width: 100%;
-    object-fit: cover;
-}
-.sakhalin-image img {
-    border-radius: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
