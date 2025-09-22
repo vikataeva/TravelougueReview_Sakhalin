@@ -13,7 +13,7 @@
 /* Typography and Spacing */
     --font-family: 'Montserrat', sans-serif; /* Primary font*/
     --font-size: 16px; /* Base font size */
-    --background-color: #f4f4f4; /*Page background color*/
+    --background-color: var (var(--ocean))
     --text-color: #333; /*Primary body text color*/
     --padding: 10px; /* Spacing inside the box */
     --margin: 10px; /* Spacing outside the box */
@@ -221,63 +221,126 @@ body {
 
 .overview {
     display: grid; /* Grid layout for overview */
-    grid-template-columns: 1.1fr 1.4fr; /* two column layout */
-    gap: 30px; /* Spacing between elements */
+    grid-template-columns: 1.4fr 1fr; /* two column layout */
     align-items: start; /* Vertically center items */
-    max-width: 1700px; /* Limit width for better readability */
-    margin: 56px auto; /* Center the grid */
-    padding: 0px 20px; /* Vertical padding */
+    padding: 100px 60px; /* Vertical padding */
+    background: var(--ocean);
+    margin-bottom: 150px;
+
 }
 
 .about h2{
-    margin: 0 0 10px; /* Spacing below the title */
-    font-size: 2em;
-    font-weight: 400;
+    margin: 80px 80px 30px; /* Spacing below the title */
+    font-size: 2.4em;
+    font-weight: 500;
     letter-spacing: .06em;
-    color: var(--ocean); /* Title color */
+    color: var(--white); /* Title color */
 }
 
 .about p {
-    font-size: 1.4em;
+    font-size: 1.6em;
     line-height: 1.6; /* Line spacing */
     margin: 0 0 14px; /* Spacing below paragraphs */
     font-weight: 300;
+    color: var(--white); /* Text color */
+    padding-left: 80px; /* Spacing from the left */
+    max-width: 75ch;
 }
+
+.map_button {
+    margin: 60px auto; /* Spacing above the button */
+    text-align: center; /* Center the button */
+    border: 2px solid var(--white); /* White border around the button */
+    display: flex; /* Flexbox for layout */
+    border-radius: 8px; /* Rounded corners for the button */
+    background: rgba(255, 255, 255, 0.1); 
+    backdrop-filter: blur(10px); /* Blurred background effect */
+    justify-content: center; /* Center the button */
+    max-width: 300px; /* Limit width for better readability */
+    align-items: center; /* Center the button */
+    font-size: larger;
+}
+.map_link {
+    font-size: 1.2em;
+    color: var(--white); /* Link color */
+    text-decoration: none; /* Remove underline */
+    padding: 12px 24px; /* Inner spacing */
+    display: block; /* Inline-block for button-like behavior */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth hover effects */
+}
+
+/*Right column - image*/
+.sakhalin-image{
+   width: 100%; /* Full width of the column */
+    height: auto; 
+    display: flex; /* Flexbox for layout */
+    max-width: 600px; /* Limit width for better readability */
+    border-radius: 0;
+   object-fit: cover; /* Fills the container without distortion */
+    border: none;
+    outline: none;
+    margin: 0 auto; /* Center the image */
+    justify-content: center; /* Center the image */ 
+    padding-top: 50px; /* Spacing from the top */
+    overflow: hidden; /* Hide overflow to maintain layout */
+
+}
+.sakhalin-image img {
+    width: 90%; /* Full width of the column */
+    object-fit: cover; /* Fills the container without distortion */
+    object-position: center; /* Center the image */
+    margin: 0; /* No margin for images */
+    display: block;
+    border-radius: 0; /* No rounded corners for images */
+    
+}
+
 /* Overview Section with Places List */
 
 
 /*Travelogue Section */
-
 .travelogue {
+    display: block; 
     width: 100%;
     margin-top: 56px; /* Spacing above the section */
-    padding: 32px 0; /* Vertical padding */
-    background-color: var(--sand); /* Light sand background */
+    background-color: var(--white); /* Light sand background */
 }
 
 .travelogue-header {
     text-align: center; /* Centered text */
-    margin: 0 auto 40px; /* Spacing below the header */
-    max-width: 1100px; /* Limit width for better readability */
+    margin: 0 auto 30px; /* Spacing below the header */
     padding: 0 20px; /* Inner spacing */
+    max-width: 1200px; 
+    color:#1A7C84
+}
+
+.travelogue p { 
+    text-align: center;
+    font-size: 2em;
+    font-family: 'Monsterrat' sans-serif;
+    padding-bottom: 40px;
+
 }
 
 .review {
     display:grid; /* Grid layout for review */
-    grid-template-columns: 1fr 1fr; /* Two column layout */
-    gap: 20px; /* Spacing between elements */
-    align-items: stretch; 
+    grid-template-columns: 1fr 2fr; /* Two column layout */
+    gap: 5rem; /* Spacing between elements */
+    align-items: center; 
 
     width: 100%; 
-    margin: 0 auto 80px; /* Center the review */
-    padding: 40 60px; /* Inner spacing */
+    padding: 2.25rem 50px; /* Inner spacing */
     background: var(--white); /* White background for contrast */
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-    max-width: 1200px; /* Limit width for better readability */
-    border-radius: 0;
+    border-bottom: 1px solid var(--ocean);
+    max-width: 1400px;
+    margin: 0 auto;
 }
 
-.review figure {
+.travelogue > .review:last-of-type {
+    border-bottom: none;
+}
+
+.review-image {
     margin: 0; /* No margin for figure */
     padding: 0; /* No padding for figure */
     height: 100%; /* Full height of the column */
@@ -285,7 +348,8 @@ body {
 
 .review img {
     width: 100%; /* Full width of the column */
-    height: 100%; 
+    height: auto; 
+    aspect-ratio: 3/4;
     object-fit: cover; /* Fills the container without distortion */
     object-position: center; /* Center the image */
     box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
@@ -294,11 +358,55 @@ body {
     border-radius: 0; /* No rounded corners for images */
 }
 
-.review-text {
-    padding: 60px; /* Inner spacing */
+.review-image figcaption {
+    font-size: .8rem;
+    color: var(--ocean);
+    margin-top: .5rem;
+    font-family: 'Monsterrat' sans-serif;
+}
+
+.review-text h2 {
+    font-family: 'Monsterrat' sans-serif;
+    text-transform: uppercase;
+    letter-spacing: .14em;
+    line-height: 1.1;
+    font-size: 3em;
+}
+
+.review-text p{
+    padding: 0px; /* Inner spacing */
     text-align: left; /* Left-aligned text */
     color:var(--text-color); /* Primary text color */
-    font-weight: 400;
+    font-weight: 300;
+    font-size: 1.5em;
+    line-height: 1.6;
+}
+
+.review-card {
+    background: none;
+    border: 2px solid var(--ocean);
+    border-radius: 10px;
+    padding: 2rem 2rem;
+    box-shadow: 0 10px 22px rgba(0, 0, 0, 0.1);
+    max-width: 90ch;
+    margin-top: 20px;
+}
+
+.footer {
+    background: var(--ocean);
+    color: var(--white);
+    text-align: center;
+    padding: 40px 20px;
+    margin-top: 80px;
     font-size: 1.1em;
     line-height: 1.6;
+}
+
+.footer h2 {
+    padding-top: 50px;
+}
+.footer p {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 50px 50px;
 }
