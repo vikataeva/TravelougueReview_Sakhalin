@@ -1,7 +1,7 @@
 :root{
 /* Color Palette */ 
     --ocean: #1A7C84;
-    --waves: #4EC6D1;
+    --waves: #074c52;
     --white: #FFFFFF;
     --sand: #FDE9CF;
     --sunset: #FF6F61;
@@ -219,6 +219,10 @@ body {
     padding: 0;
 }
 
+html, body {
+    margin: 0;
+}
+
 .overview {
     display: grid; /* Grid layout for overview */
     grid-template-columns: 1.4fr 1fr; /* two column layout */
@@ -303,93 +307,159 @@ body {
     display: block; 
     width: 100%;
     margin-top: 56px; /* Spacing above the section */
-    background-color: var(--white); /* Light sand background */
+    background-color: var(--white);  
+    margin-bottom: 50px;
 }
 
 .travelogue-header {
     text-align: center; /* Centered text */
     margin: 0 auto 30px; /* Spacing below the header */
     padding: 0 20px; /* Inner spacing */
-    max-width: 1200px; 
+    max-width: 1400px; 
     color:#1A7C84
 }
 
-.travelogue p { 
+.travelogue h3 {
     text-align: center;
+}
+
+.travelogue p { 
     font-size: 2em;
     font-family: 'Monsterrat' sans-serif;
     padding-bottom: 40px;
-
 }
 
 .review {
-    display:grid; /* Grid layout for review */
-    grid-template-columns: 1fr 2fr; /* Two column layout */
-    gap: 5rem; /* Spacing between elements */
-    align-items: center; 
-
-    width: 100%; 
-    padding: 2.25rem 50px; /* Inner spacing */
+    position: relative;
+    display: grid;
+    grid-template-columns: 1.5fr 2fr;
+    padding: 0; /* Inner spacing */
     background: var(--white); /* White background for contrast */
-    border-bottom: 1px solid var(--ocean);
-    max-width: 1400px;
-    margin: 0 auto;
+    max-width: none;
+    margin: 0;
+    align-items: stretch;
+    gap: 0;
+    width: 100%;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
-.travelogue > .review:last-of-type {
-    border-bottom: none;
-}
 
 .review-image {
     margin: 0; /* No margin for figure */
-    padding: 0; /* No padding for figure */
+    padding: 0;
     height: 100%; /* Full height of the column */
 }
 
-.review img {
-    width: 100%; /* Full width of the column */
-    height: auto; 
-    aspect-ratio: 3/4;
-    object-fit: cover; /* Fills the container without distortion */
-    object-position: center; /* Center the image */
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
-    margin: 0; /* No margin for images */
-    display: block;
-    border-radius: 0; /* No rounded corners for images */
+.review-image figure {
+    margin: 0;
+    height: 100%;
 }
 
-.review-image figcaption {
-    font-size: .8rem;
-    color: var(--ocean);
-    margin-top: .5rem;
-    font-family: 'Monsterrat' sans-serif;
+.review-image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    aspect-ratio: 1/1;
+}
+
+.review-text {
+    position: relative;
+    background: rbga(26,124,132, 0.6);
+    color: var(--white);
+    padding: 3rem 3rem 2.25rem;
+    display: grid;
+    grid-template-rows: auto auto 1fr;
+    align-content:start;
+    overflow: hidden;
+
+    gap: 1rem;
+    max-width: 1400px;
+    margin: 0;
+}
+
+.review-text::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(26, 124, 132, 0.7), rgba(78, 198, 209, 0.7)),url("images/busse2.webp") no-repeat center/cover;
+    filter: blur(20px);
+    opacity: 0.35;
+    z-index: 0;
+}
+
+.review-text * {
+     position: relative;
+    z-index: 1;
+}
+
+.review-text .eyebrow {
+   margin: 0;
+   font-size: 1.2em;
+   text-transform: uppercase; /* Uppercase letters */
+   font-weight: 400; /* Semi-bold font weight */
+   letter-spacing: .22em; /* Spacing between letters */
+   color: var(--waves);
 }
 
 .review-text h2 {
     font-family: 'Monsterrat' sans-serif;
     text-transform: uppercase;
-    letter-spacing: .14em;
+    letter-spacing: .12em;
     line-height: 1.1;
-    font-size: 3em;
+    font-size: 4em;
+    color: var(--ocean);
+    font-weight: 700;
+    margin: 0;
 }
 
-.review-text p{
-    padding: 0px; /* Inner spacing */
-    text-align: left; /* Left-aligned text */
-    color:var(--text-color); /* Primary text color */
-    font-weight: 300;
-    font-size: 1.5em;
-    line-height: 1.6;
+.review-text p {
+    color:var(--waves); /* Primary text color */
+    font-weight: 350;
+    font-size: 1.6em;
+    margin: .65rem 0 0;
 }
 
 .review-card {
-    background: none;
-    border: 2px solid var(--ocean);
+    background: var(--ocean);
+    border: 1px solid rgba(255, 255, 255, 0.22);
     border-radius: 10px;
-    padding: 2rem 2rem;
+    padding: 1.25rem 1.25rem;
     box-shadow: 0 10px 22px rgba(0, 0, 0, 0.1);
-    max-width: 90ch;
-    margin-top: 20px;
+    max-width: 120ch;
+    color: var(--white);
+    padding-bottom: 0%;
+}
+
+.review-card h2 {
+    color: var(--white);
+    font-size: 1.25em;
+    font-weight: 600;
+}
+
+.review-card p {
+    font-size: 1.5em;
+    color: var(--white);
+}
+
+.review.reverse {
+    display: grid;
+    grid-template-columns: 2fr 1.5fr;
+    gap:0;
+    align-items: stretch;
+}
+
+.review.reverse .review-text {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.review.reverse .review-image {
+    grid-column: 2;
+    grid-row: 1;
 }
 
 .footer {
