@@ -15,7 +15,7 @@ html, body {
 body {
     font-size: 16px; 
     background-color: var(--white);
-    color: var(--white);
+    color: var(--ocean);
     margin: 0;
     padding: 0;
 }
@@ -348,7 +348,7 @@ p {
 
 .review-text {
     position: relative;
-    background: rbga(26,124,132, 0.3);
+    background: rgba(26, 124, 132, 0.3);
     padding: 3rem;
     display: flex;
     flex-direction: column;
