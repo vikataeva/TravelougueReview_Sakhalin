@@ -10,6 +10,9 @@ html, body {
     margin: 0;
     padding: 0;
     box-sizing: border-box; /* Include padding and border in element's total width and height */
+    scroll-behavior: smooth; /* Smooth scrolling for anchor links */
+    width: 100%;
+    margin: 0 auto; /* Center the page */
 }
 
 body {
@@ -154,7 +157,6 @@ p {
     flex-direction: column; /* Stack items vertically */
     align-items: center; /* Center items horizontally */
     width: 100%; 
-    max-width: 1200px; /* Limit width */
     margin: 0 auto; /* Center the panel */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); 
     z-index: 3; 
@@ -228,7 +230,8 @@ p {
     display: grid; 
     grid-template-columns: 1.4fr 1fr; /* two column layout */
     align-items: start; /* Vertically center items */
-    padding: 100px 60px; /* Inner spacing */
+    padding: 300px 60px 20px 60px; /* Inner spacing - removed bottom padding */
+    margin-bottom: 10px; /* Remove bottom margin */
     background: var(--ocean);
 }
 
@@ -254,14 +257,14 @@ p {
 .map_button {
     margin: 60px auto; /* Spacing above the button */
     text-align: center; /* Center the button */
-    max-width: 400px; /* Limit width */
+    max-width: 300px; /* Limit width */
 
 }
 .map_link {
     display: block; /* Inline-block for button-like behavior */
     text-decoration: none; /* Remove underline */
     padding: 22px 24px; 
-    font-size: 1.2rem;
+    font-size: .8rem;
     text-transform: uppercase; 
     font-weight: 500; 
     letter-spacing: .16em; 
@@ -325,7 +328,6 @@ p {
     width: 100%;
     background: var(--white);
     box-shadow: 0 20px 25px -20px rgba(0, 0, 0, 0.15);
-    margin-bottom: 70px;
 }
 
 .review-image {
@@ -450,4 +452,165 @@ p {
     opacity: 0.7;
     font-size: 0.9em;
     font-family: 'Montserrat', sans-serif;
+}
+
+/* ===============================================
+   RESPONSIVE DESIGN - MEDIA QUERIES
+   =============================================== */
+
+/* Large tablets and small desktops (768px - 1024px) */
+@media screen and (max-width: 1024px) {
+    h1 {
+        font-size: 8em;
+    }
+    
+    h3 {
+        font-size: 4em;
+    }
+    
+    .overview {
+        padding: 150px 40px 0 40px;
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .about h3, .about h4 {
+        margin-left: 40px;
+        margin-right: 40px;
+    }
+    
+    .about p {
+        padding-left: 40px;
+    }
+}
+
+/* Tablets (481px - 768px) */
+@media screen and (max-width: 768px) {
+    h1 {
+        font-size: 6em;
+    }
+    
+    h2 {
+        font-size: 2.5em;
+    }
+    
+    h3 {
+        font-size: 3em;
+    }
+    
+    p {
+        font-size: 1.3em;
+    }
+    
+    .overview {
+        padding: 100px 30px 0 30px;
+        grid-template-columns: 1fr;
+    }
+    
+    .about h3, .about h4 {
+        margin-left: 30px;
+        margin-right: 30px;
+    }
+    
+    .about p {
+        padding-left: 30px;
+    }
+    
+    .review {
+        grid-template-columns: 1fr !important;
+        gap: 1rem;
+    }
+    
+    .review.reverse {
+        grid-template-columns: 1fr !important;
+    }
+    
+    .review-text, .review.reverse .review-text {
+        grid-column: 1;
+        grid-row: 2;
+    }
+    
+    .review-image, .review.reverse .review-image {
+        grid-column: 1;
+        grid-row: 1;
+    }
+}
+
+/* Mobile phones (320px - 480px) */
+@media screen and (max-width: 480px) {
+    h1 {
+        font-size: 4em;
+    }
+    
+    h2 {
+        font-size: 2em;
+    }
+    
+    h3 {
+        font-size: 2.5em;
+    }
+    
+    h4 {
+        font-size: 1.2em;
+    }
+    
+    p {
+        font-size: 1.1em;
+    }
+    
+    .overview {
+        padding: 60px 20px 0 20px;
+    }
+    
+    .about h3, .about h4 {
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+    
+    .about p {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    
+    .map_button {
+        margin: 40px 20px;
+    }
+    
+    .map_link {
+        padding: 18px 20px;
+        font-size: 0.7rem;
+    }
+    
+    .footer {
+        padding: 60px 15px 30px;
+    }
+    
+    .down_icon {
+        width: 40px;
+    }
+}
+
+/* Extra small screens (max-width: 320px) */
+@media screen and (max-width: 320px) {
+    h1 {
+        font-size: 3em;
+    }
+    
+    h3 {
+        font-size: 2em;
+    }
+    
+    .overview {
+        padding: 40px 15px 0 15px;
+    }
+    
+    .about h3, .about h4 {
+        margin-left: 15px;
+        margin-right: 15px;
+    }
+    
+    .about p {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
 }
