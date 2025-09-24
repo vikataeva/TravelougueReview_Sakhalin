@@ -1,163 +1,187 @@
-:root{
+:root {
 /* Color Palette */ 
     --ocean: #1A7C84;
     --waves: #074c52;
     --white: #FFFFFF;
-    --sand: #FDE9CF;
-    --sunset: #FF6F61;
-
-/* Hero Background Image and Overlay tint*/
-    --hero-image: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
     --overlay: linear-gradient(rgba(26, 124, 132, 0.7), rgba(78, 198, 209, 0.7));
-
-/* Typography and Spacing */
-    --font-family: 'Montserrat', sans-serif; /* Primary font*/
-    --font-size: 16px; /* Base font size */
-    --background-color: var (var(--ocean))
-    --text-color: #333; /*Primary body text color*/
-    --padding: 10px; /* Spacing inside the box */
-    --margin: 10px; /* Spacing outside the box */
 }
 
-/* Headings and Paragraphs Styles */
+html, body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Include padding and border in element's total width and height */
+}
+
+body {
+    font-size: 16px; 
+    background-color: var(--white);
+    color: var(--white);
+    margin: 0;
+    padding: 0;
+}
+
+/* Headings and Paragraphs */
+h1, h2, h3 {
+    font-family: 'Alegreya', serif; 
+    letter-spacing: .15em; 
+    text-transform: uppercase; 
+    margin: 0; /* Spacing above and below */
+    padding: 0; /* spacing inside above and below */
+}
+
 h1 {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 5em;
-    letter-spacing: .1em; /*Adds luxury spacing between letters */
-    text-transform: uppercase; /* Uppercase letters */
-    font-weight: 300; /* Light font weight */
-    margin: 0.2em 0; /* Spacing above and below */
+    font-size: 12em; /* Header title and Travelogue title*/
+    line-height: 1.1; 
+    font-weight: 400; 
+    margin-bottom: 0.2em; 
 }
 
 h2 {
-    font-size: 1.8em;
-    font-weight: 300;
-    margin: 0.2em 0 0.5em; /* Spacing above and below */
-    text-transform: uppercase;
+    font-size: 3em; /* Spot title */
+    line-height: 1.2; 
+    font-weight: 500; 
+    margin-bottom: 0.3em;
 }
 
 h3 {
-    font-size: 1.4em;
+    font-size: 5em; /* About and footer title */
+    line-height: 1.3; 
     font-weight: 500;
-    margin: 0.2em 0 0.5em;
+    margin-bottom: 0.4em; 
+}
+
+h4 {
+    font-family: 'Montserrat', sans-serif; /*eyebrow and why I love it */
+    font-size: 1.4em;
+    letter-spacing: .22em; 
+    font-weight: 500;
+    line-height: 1.1;
     text-transform: uppercase;
 }
 
 p {
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; /* Secondary font for body text */
-    font-size: 1.3em;
-    line-height: 1.6; /* Line spacing */
-    margin: 0; /* No margin for paragraphs */
+    font-family: 'Montserrat', sans-serif; /* Body text font */
+    line-height: 1.6; 
+    font-size: 1.5em;
     font-weight: 300;
+    margin: 0.65em 0; 
 }
+
 
 /* Hero Section */
 .hero {
-    position: relative; /* Ensure overlay and content are positioned correctly */
-    min-height: 80vh; /* Full viewport height, at least 78 percent */
-    color:#FFFFFF;
-
-    background: var(--overlay), url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80') no-repeat center/cover fixed; /* Background hero image with overlay */
+    position: relative; /* Position relative to contain absolute children */
+    min-height: 80vh; /* Full viewport height */
     color: var(--white); /* White text over the image */
-
-    padding: 4px 94px 6px; /* Inner spacing (top and bottom)*/
-    box-shadow: #1A7C84 0px 4px 30px -1px, rgba(26, 124, 132, 0.2) 0px 2px 4px -1px; /* Subtle shadow for depth */
+    overflow: hidden;
 }
+
+/* Hero Background Image */
+.hero_image {
+    position: absolute; 
+    top: 0; /* Align to the top */
+    left: 0; /* Align to the left */
+    width: 100%; /* Full width of the column */
+    height: 100%;
+    z-index: 0; /*  image is behind other elements */
+}   
+
+.hero_image img {
+    width: 100%; /* Full width of the column */
+    height: 100%; 
+    object-fit: cover; /* Fills the container without distortion */
+    object-position: center; /* Center the image */
+    display: block; 
+}
+
+.hero_image::after {
+    content: ""; /* Empty content for the overlay*/
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--overlay); /* Overlay gradient */
+    z-index: 1; /* Ensure overlay is above the image but below text */
+}
+
 .logo img{
-    position: absolute; /* Position relative to the hero */
-    top: 60px; /* Distance from the top edge */
-    left: 50%; /* Distance from the left edge */
-    width: 200px; /* Logo width */
+    position: absolute; 
+    top: 60px; 
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Center horizontally */
+
+    width: 200px; 
     height: auto; /* Maintain aspect ratio */
-    transform: translateX(-50%); /* Center the logo horizontally */
-    z-index: 10; /* Ensure logo is above other elements */
-    opacity: 0.8; /* Slightly transparent logo */
-    filter: drop-shadow(2px 4px 6px rgba(0, 0, 0, 0.3)); /* Subtle shadow for better visibility */
-    border: 2px solid var(--white); /* White border around the logo */
-    border-radius: 8px; /* Rounded corners for the logo */
-    padding: 20px; /* Padding inside the border */
+
+    z-index: 3; /*  logo is aon top */
+    opacity: 0.8; 
+    filter: drop-shadow(2px 4px 6px rgba(0, 0, 0, 0.3)); 
+    border: 2px solid var(--white); 
+    border-radius: 8px; 
+    padding: 20px; /* space around the border */
 }
 
-/* Wrap hero content in a grid for centering */
-.hero_content {
-    display:grid; /* Grid contayner for layout */
-    max-width: 46rem; /* Limit width for better readability */
-    padding-left: 96px;  /* Brings left the content of the page*/
+.hero_text {
+    position: relative; /* Position relative to the hero */
+    max-width: 86rem; /* Limit width for better readability */
+    padding-left: 66px;  /* Brings left the content of the page*/
     padding-top: 250px; /* Spacing from the top */
-    text-align: left; /* Centered text */
-    gap: 16px; /* Spacing between elements */
+    z-index: 2;
+    margin-left: 40px; /* Spacing from the left edge */
 }
 
-.hero_eyebrow {
-    margin: 0;
-    font-size: 1.2em;
-    text-transform: uppercase; /* Uppercase letters */
-    font-weight: 500; /* Semi-bold font weight */
-    letter-spacing: .22em; /* Spacing between letters */
-    color: var(--white); /* Eyebrow color */
+.hero_text h4 {
+    margin-bottom: 10px;
+    color: var(--white); 
 }
 
-.hero_title {
-    font-size: 7em;
-    margin: 0; /* No margin for title */
-    font-weight: 400; /* Light font weight */
-    letter-spacing: .14em;;
-    margin-bottom: 30px; /* Spacing below the title */
-}
-
-.hero_subtitle {
-    font-size: 1.5em;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    margin: .9rem 0 0; /* Spacing above the subtitle */
-    font-weight: 300; /* Light font weight */
-    letter-spacing: .1em;
-    max-width: 75ch; 
-    text-transform: none; /* Normal text */
+.hero_text h1 {
+    color: var(--white); 
 }
 
 .hero_panel {
-    position: absolute; /* Position the panel */
+    position: absolute; 
     left: 50%; /* Center horizontally */
     transform: translateX(-50%); /* Center the panel */
-    bottom : 0px; /* Distance from the bottom edge */
+    bottom : 0px; /* no Distance from the bottom edge */
     background: rgba(255, 255, 255, 0.1); 
     backdrop-filter: blur(10px); /* Blurred background effect */
     padding: 32px 48px; /* Inner spacing */
-    max-width: 840px; /* Limit width for better readability */
     color: var(--white);
 
-    display: flex; /* Flexbox for layout */
+    display: flex; 
     flex-direction: column; /* Stack items vertically */
     align-items: center; /* Center items horizontally */
-    gap: 26px; /* Spacing between elements */
-    text-align: center; /* Centered text */
+    width: 100%; 
+    max-width: 1200px; /* Limit width */
+    margin: 0 auto; /* Center the panel */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); 
+    z-index: 3; 
 }
 
 .hero_panel_header {
-    max-width: 640px; /* Limit width for better readability */
-    padding-right: 4px; 
-    text-align: right; /* Right-aligned text */
-    color: var(--white);    
-    font-size: 1.2em;
-    text-transform: uppercase; /* Uppercase letters */
-    font-weight: 500; /* Semi-bold font weight */
-    letter-spacing: .22em; /* Spacing between letters */
-    margin: 0 0 20px; /* Spacing below the header */
-    font-family: 'monserrat', sans-serif;
+    text-align: center; 
+    color: var(--white);
+    margin: 0 0 40px; /* Spacing below the header */
 }
 
 .hero_panel_list {
-    list-style: none; /* Remove default list styling */
-    padding: 0; /* Remove default padding */
-    margin: 0; /* Remove default margin */
-    display: flex; /* Flexbox for horizontal layout */
+    list-style: none; 
+    padding: 0;
+    margin: 0; 
+    display: flex; 
     gap: 0; /* Spacing between items */
     align-items: stretch; /* Stretch items to the same height */
 }
 
 .hero_panel_list li {
-    flex: 1 1 0; /* Equal width for each item */
+    flex: 1; /* Equal width for each item */
     display:flex; /* Flexbox for link alignment */
+}
+
+.hero_panel_list li:not(:last-child) .hero_panel_item {
+    border-right: 1px solid var(--white); /* Divider between items */
 }
 
 .hero_panel_item {
@@ -166,186 +190,147 @@ p {
     justify-content: center; /* Center items vertically */
     align-items: center; /* Center items horizontally */
     text-align: center; /* Center text */
-    gap: 6px; /* Spacing between items */
-    padding: 12px; /* Inner spacing */
-    width: 100%; /* Full width of the list item */
+    padding: 32px; /* Inner spacing */
+    width: 100%; 
     text-decoration: none; /* Remove underline */
     color: var(--white); /* Link color */
-    transition: color 0.3s ease, border-bottom 0.3s ease; /* Smooth hover effects */
-}
-.hero_panel_list li:not(:last-child) .hero_panel_item {
-    border-right: 1px solid var(--white); /* Divider between items */
 }
 
 .spot_title {
-    font-size: 1.1em;
-    margin: 0; /* No margin for spot title */
-    font-weight: 600; /* Semi-bold font weight */
+    font-size: 1.5em;
+    font-weight: 600;
     letter-spacing: .08em;
-    text-transform: uppercase; /* Uppercase letters */
-    font-family: 'monserrat', sans-serif;
+    text-transform: uppercase; 
+    font-family: 'Montserrat', sans-serif; 
 }
 
 .spot_info {
-    font-size: 1em;
-    font-weight: 300; /* Light font weight */
+    font-size: 1.2em;
+    font-weight: 300; 
     letter-spacing: .04em;
     line-height: 1.3;
-    font-family: 'monserrat', sans-serif;
+    font-family: 'Montserrat', sans-serif; 
+    margin: 18px 0;  
+    max-width: 300px;
+    color: var(--white);
 }
 
 .down_icon {
-    width: 50px; /* Icon width */
-    height: auto; /* Maintain aspect ratio */
-    margin-top: 6px; /* Spacing above the icon */
-    transition: transform 0.3s ease; /* Smooth hover effect */
+    width: 50px; 
+    height: auto;
+    margin-top: 6px; 
     align-items: center;
-
+    justify-content: center;
 }
 
-.down_icon:hover {
-    transform: translateY(4px); /* Move icon down on hover */
-    color: var(--waves);
-}
-
-
-/* General Body Styles */
-body {
-    font-family: var(--font-family);
-    font-size: var(--font-size);
-    background-color: var(--background-color);
-    color: var(--text-color);
-    margin: 0;
-    padding: 0;
-}
-
-html, body {
-    margin: 0;
-}
-
+/* What is Sakhalin - left column - text*/
 .overview {
-    display: grid; /* Grid layout for overview */
+    display: grid; 
     grid-template-columns: 1.4fr 1fr; /* two column layout */
     align-items: start; /* Vertically center items */
-    padding: 100px 60px; /* Vertical padding */
+    padding: 100px 60px; /* Inner spacing */
     background: var(--ocean);
-    margin-bottom: 150px;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1); /* Divider between reviews */
-    box-shadow: 0 20px 25px -20px rgba(0, 0, 0, 0.15);
-
 }
 
-.about h2{
-    margin: 80px 80px 30px; /* Spacing below the title */
-    font-size: 2.4em;
-    font-weight: 500;
-    letter-spacing: .06em;
-    color: var(--white); /* Title color */
+.about h3{
+    margin: 0 80px 30px; /* Spacing around the title */
+    color: var(--white);
+}
+
+.about h4{
+    margin: 0 80px 10px; 
+    color: var(--white);
+    opacity: 0.7;
 }
 
 .about p {
-    font-size: 1.6em;
-    line-height: 1.6; /* Line spacing */
-    margin: 0 0 14px; /* Spacing below paragraphs */
+    margin-bottom: 14px; 
     font-weight: 300;
-    color: var(--white); /* Text color */
-    padding-left: 80px; /* Spacing from the left */
+    color: var(--white); 
+    padding-left: 80px; 
     max-width: 75ch;
 }
 
 .map_button {
     margin: 60px auto; /* Spacing above the button */
     text-align: center; /* Center the button */
-    border: 2px solid var(--white); /* White border around the button */
-    display: flex; /* Flexbox for layout */
-    border-radius: 8px; /* Rounded corners for the button */
-    background: rgba(255, 255, 255, 0.1); 
-    backdrop-filter: blur(10px); /* Blurred background effect */
-    justify-content: center; /* Center the button */
-    max-width: 300px; /* Limit width for better readability */
-    align-items: center; /* Center the button */
-    font-size: larger;
+    max-width: 400px; /* Limit width */
+
 }
 .map_link {
-    font-size: 1.2em;
-    color: var(--white); /* Link color */
-    text-decoration: none; /* Remove underline */
-    padding: 12px 24px; /* Inner spacing */
     display: block; /* Inline-block for button-like behavior */
-    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth hover effects */
+    text-decoration: none; /* Remove underline */
+    padding: 22px 24px; 
+    font-size: 1.2rem;
+    text-transform: uppercase; 
+    font-weight: 500; 
+    letter-spacing: .16em; 
+    color: var(--white); /* Eyebrow color */
+    font-family: 'Montserrat', sans-serif;
+
+    border: 2px solid var(--white); 
+    border-radius: 12px; 
+    background: rgba(255, 255, 255, 0.1); 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+    align-items: center; /* Center the button */
 }
 
 /*Right column - image*/
 .sakhalin-image{
-   width: 100%; /* Full width of the column */
-    height: auto; 
-    display: flex; /* Flexbox for layout */
-    max-width: 600px; /* Limit width for better readability */
-    border-radius: 0;
-   object-fit: cover; /* Fills the container without distortion */
-    border: none;
-    outline: none;
-    margin: 0 auto; /* Center the image */
-    justify-content: center; /* Center the image */ 
-    padding-top: 50px; /* Spacing from the top */
-    overflow: hidden; /* Hide overflow to maintain layout */
-
+    display: flex; /* Flexbox for centering */
+    align-items: flex-start; /* Align to the top */
+    justify-content: center; /* Center the image */
+    padding-top: 30px; /* Spacing from the top */
 }
+
 .sakhalin-image img {
-    width: 90%; /* Full width of the column */
+    width: 90%;
+    max-width: 550px; 
     object-fit: cover; /* Fills the container without distortion */
-    object-position: center; /* Center the image */
-    margin: 0; /* No margin for images */
     display: block;
-    border-radius: 0; /* No rounded corners for images */
-    
 }
-
-/* Overview Section with Places List */
 
 
 /*Travelogue Section */
 .travelogue {
-    display: block; 
     width: 100%;
-    margin-top: 56px; /* Spacing above the section */
+    margin-top: 126px; 
     background-color: var(--white);  
 }
 
 .travelogue-header {
-    text-align: center; /* Centered text */
-    margin: 0 auto 30px; /* Spacing below the header */
-    padding: 0 20px; /* Inner spacing */
+    text-align: center;
+    padding: 0 20px 60px; /* Spacing above and below the header */
+    margin: 0 auto;
     max-width: 1400px; 
-    color:#1A7C84
 }
 
 .travelogue h3 {
-    text-align: center;
-    margin-bottom: 50px; /* Spacing below the title */
+    color: var(--ocean); 
 }
 
+.travelogue h4 {
+    color: var(--waves); 
+    opacity: 0.7;
+    margin-top: 10px; /* Spacing above the subtitle */
+}
+
+/* Individual Review Section */
 .review {
     position: relative;
     display: grid;
     grid-template-columns: 1.5fr 2fr;
-    padding: 0; /* Inner spacing */
-    background: var(--white); /* White background for contrast */
-    max-width: none;
     margin: 0;
     align-items: stretch;
-    gap: 0;
     width: 100%;
-
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1); /* Divider between reviews */
+    background: var(--white);
     box-shadow: 0 20px 25px -20px rgba(0, 0, 0, 0.15);
-    margin-bottom: 60px; /* Spaacing below each review */
+    margin-bottom: 70px;
 }
 
 .review-image {
     margin: 0; /* No margin for figure */
     padding: 0;
-    height: 100%; /* Full height of the column */
 }
 
 .review-image figure {
@@ -363,18 +348,14 @@ html, body {
 
 .review-text {
     position: relative;
-    background: rbga(26,124,132, 0.6);
-    color: var(--white);
-    padding: 3rem 3rem 2.25rem;
-    display: grid;
-    grid-template-rows: auto auto 1fr;
-    align-content:start;
-    overflow: hidden;
-
+    background: rbga(26,124,132, 0.3);
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
     gap: 1rem;
-    max-width: 1400px;
-    margin: 0;
-    border: none;
+    overflow: hidden;
+    z-index: 1;
 }
 
 .review-text::before {
@@ -386,69 +367,53 @@ html, body {
     height: 100%;
     background: linear-gradient(rgba(26, 124, 132, 0.7), rgba(78, 198, 209, 0.7)),url("images/busse2.webp") no-repeat center/cover;
     filter: blur(20px);
-    opacity: 0.35;
+    opacity: 0.15;
     z-index: 0;
 }
 
-.review-text * {
-     position: relative;
-    z-index: 1;
-}
-
-.review-text .eyebrow {
-   margin: 0;
-   font-size: 1.2em;
-   text-transform: uppercase; /* Uppercase letters */
-   font-weight: 400; /* Semi-bold font weight */
-   letter-spacing: .22em; /* Spacing between letters */
-   color: var(--waves);
+.review-text h4 {
+    color: var(--ocean);
+    opacity: 0.4;
 }
 
 .review-text h2 {
-    font-family: 'Monsterrat' sans-serif;
-    text-transform: uppercase;
-    letter-spacing: .12em;
-    line-height: 1.1;
-    font-size: 4em;
-    color: var(--ocean);
-    font-weight: 700;
-    margin: 0;
+   margin: 0;
+   color: var(--ocean);
+   font-size: 4.4em;
 }
 
+
 .review-text p {
-    color:var(--waves); /* Primary text color */
-    font-weight: 350;
-    font-size: 1.6em;
+    color:var(--waves);
     margin: .65rem 0 0;
 }
 
+/* Why I love it */
 .review-card {
-    background: var(--ocean);
-    border: 1px solid rgba(255, 255, 255, 0.22);
-    border-radius: 10px;
-    padding: 1.25rem 1.25rem;
-    box-shadow: 0 10px 22px rgba(0, 0, 0, 0.1);
-    max-width: 120ch;
+    margin: 2rem -3rem -3rem;
+    background:var(--ocean);
+    padding: 2rem;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
     color: var(--white);
-    padding-bottom: 0%;
+    opacity: 0.9;
 }
 
-.review-card h2 {
+.review-card h4 {
     color: var(--white);
-    font-size: 1.25em;
     font-weight: 600;
+    margin-bottom: 1rem;
+    padding-left: 1rem;
 }
 
 .review-card p {
-    font-size: 1.5em;
     color: var(--white);
+    margin-bottom: 1rem;
+    opacity: 0.9;
+    padding-left: 1rem;
 }
 
 .review.reverse {
-    display: grid;
     grid-template-columns: 2fr 1.5fr;
-    gap:0;
-    align-items: stretch;
 }
 
 .review.reverse .review-text {
@@ -461,25 +426,28 @@ html, body {
     grid-row: 1;
 }
 
+/* Footer Section */
 .footer {
     background: var(--white);
     color: var(--ocean);
     text-align: center;
-    padding: 40px 20px;
-    margin-top: 80px;
-    font-size: 1.1em;
-    line-height: 1.6;
+    padding: 80px 20px 40px;
 }
 
-.footer h2 {
-    margin:  0; /* Spacing below the title */
-    font-size: 2.4em;
-    font-weight: 500;
-    letter-spacing: .06em;
-    color: var(--ocean); /* Title color */
+.footer h3 {
+    color: var(--ocean); 
+    margin-bottom: 2rem;
 }
+
 .footer p {
     max-width: 900px;
-    margin: 0 auto;
-    padding: 50px 50px;
+    margin: 0 auto 5rem;
+    padding: 0 20px;
+}
+
+.footer small {
+    color: var(--waves);
+    opacity: 0.7;
+    font-size: 0.9em;
+    font-family: 'Montserrat', sans-serif;
 }
